@@ -13,3 +13,23 @@ function doSomething(){
 console.log(doSomething);
 
 console.log(doSomething());
+
+
+function firstRankFunction(aStupidValue){
+  var aStupidNumber=aStupidValue;
+  function secondRankFunction(aParameter){
+    console.log("I've been called with a parameter: "+aParameter);
+    console.log("...But I also remember my scope: "+aStupidNumber);
+  }
+  return secondRankFunction;
+}
+
+var mysteryFunction=firstRankFunction(10);
+// secondRankFunction(aParameter){
+//     console.log("I've been called with a parameter: "+aParameter);
+//     console.log("...But I also remember my scope: "+aStupidNumber);
+// }
+
+mysteryFunction(1);
+// I've been called with a parameter: 1
+// ...But I also remember my scope: 10
